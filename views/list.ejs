@@ -1,0 +1,22 @@
+<!--we can create an additional ejs and attache to each page for easy access to boilerplates codes like header and footer in this-->
+<%- include("header") -%>
+
+<div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+</div>
+<div class="box">
+    <% for(var i=0;i< lists.length ;i++){ %>
+    <div class="item">
+        <input type="checkbox">
+        <p><%= lists[i] %></p>
+    </div>
+        
+    <% } %>    
+    <form class="item" action="/" method="post">
+        <input type="text" name="new" placeholder="New Item" autocomplete="off" autofocus>
+        <!--we have given a (name,value) pair to submit to distinguish on which page will get updated-->
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+    </form>
+</div>
+
+<%- include("footer") -%>
